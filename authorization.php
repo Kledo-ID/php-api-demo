@@ -2,7 +2,7 @@
 
 require 'load.php';
 
-use Josantonius\Session\Session;
+use Josantonius\Session\Facades\Session;
 
 $state = random_string(40);
 

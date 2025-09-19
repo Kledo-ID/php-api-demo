@@ -3,7 +3,9 @@
 require 'load.php';
 
 use GuzzleHttp\Client;
-use Josantonius\Session\Session;
+use GuzzleHttp\Exception\GuzzleException;
+use Josantonius\Session\Exceptions\SessionNotStartedException;
+use Josantonius\Session\Facades\Session;
 
 $state = Session::pull('state');
 
@@ -33,10 +35,12 @@ if (isset($_GET['state']) && $state === $_GET['state']) {
         header('Location: '.'./get.php');
 
         exit();
-    } catch (\GuzzleHttp\Exception\GuzzleException $e) {
+    } catch (GuzzleException $e) {
         exit('Error when sending request.');
     } catch (JsonException $e) {
         exit('Invalid parsing json.');
+    } catch (SessionNotStartedException $e) {
+        exit($e->getMessage());
     }
 }
 

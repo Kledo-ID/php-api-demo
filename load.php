@@ -2,9 +2,9 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use Josantonius\Session\Session;
+use Josantonius\Session\Facades\Session;
 
-Session::init();
+Session::start();
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();

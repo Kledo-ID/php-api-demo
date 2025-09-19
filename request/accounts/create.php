@@ -17,7 +17,7 @@ $response = $client->post($_ENV['API_HOST'].'/finance/accounts', [
     ],
 ]);
 
-$body = json_decode((string) $response->getBody(), true);
+$body = json_decode((string) $response->getBody(), true, 512, JSON_THROW_ON_ERROR);
 
 ?>
 

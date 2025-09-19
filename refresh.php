@@ -3,7 +3,9 @@
 require 'load.php';
 
 use GuzzleHttp\Client;
-use Josantonius\Session\Session;
+use GuzzleHttp\Exception\GuzzleException;
+use Josantonius\Session\Exceptions\SessionNotStartedException;
+use Josantonius\Session\Facades\Session;
 
 if (Session::get('oauth2') === null) {
     header('Location: ./index.php');
@@ -34,8 +36,10 @@ try {
     );
 
     header('Location: '.'./get.php');
-} catch (\GuzzleHttp\Exception\GuzzleException $e) {
+} catch (GuzzleException $e) {
     exit('Error when sending request.');
 } catch (JsonException $e) {
     exit('Invalid parsing json.');
+} catch (SessionNotStartedException $e) {
+    exit($e->getMessage());
 }

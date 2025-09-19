@@ -2,7 +2,7 @@
 
 require 'load.php';
 
-Josantonius\Session\Session::destroy();
+Josantonius\Session\Facades\Session::destroy();
 
 header('Location: ./index.php');
 
