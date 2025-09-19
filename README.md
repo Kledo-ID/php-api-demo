@@ -4,7 +4,7 @@ Projek PHP ini mendemonstrasikan cara mengakses API Kledo menggunakan OAuth2. Gu
 
 ## Mulai
 
-Untuk menjalankan di `local` kamu perlu lokal web server dengan dukungan PHP, Git dan juga composer.
+Untuk menjalankan di `local` kamu perlu lokal web server dengan dukungan PHP versi 8.0 ke atas, Git dan juga composer.
 
 * [Download XAMPP](https://www.apachefriends.org/download.html) 
 * [Download Git](https://git-scm.com/downloads)
