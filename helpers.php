@@ -1,6 +1,6 @@
 <?php
 
-use Josantonius\Session\Session;
+use Josantonius\Session\Facades\Session;
 
 if (! function_exists('random_string')) {
     /**
@@ -8,9 +8,9 @@ if (! function_exists('random_string')) {
      *
      * @param  int  $length
      * @return string
-     * @throws Exception
+     * @throws \Random\RandomException
      */
-    function random_string($length = 16): string
+    function random_string(int $length = 16): string
     {
         $string = '';
 
@@ -35,6 +35,7 @@ if (! function_exists('set_token')) {
      * @param  string  $refreshToken
      * @param  string  $expiresIn
      * @return void
+     * @throws \Josantonius\Session\Exceptions\SessionNotStartedException
      */
     function set_token(string $tokenType, string $accessToken, string $refreshToken, string $expiresIn): void
     {
@@ -55,7 +56,7 @@ if (! function_exists('get_access_token')) {
      */
     function get_access_token(): string
     {
-        return Session::get('oauth2')['access_token'];
+        return (new Josantonius\Session\Session)->get('oauth2')['access_token'];
     }
 }
 
@@ -67,12 +68,12 @@ if (! function_exists('get_refresh_token')) {
      */
     function get_refresh_token(): string
     {
-        return Session::get('oauth2')['refresh_token'];
+        return (new Josantonius\Session\Session)->get('oauth2')['refresh_token'];
     }
 }
 
 if (! function_exists('is_collapsed')) {
-    function is_collapsed($key)
+    function is_collapsed($key): void
     {
         if ((isset($_GET['request']) && $_GET['request'] === $key)
             || (isset($_GET['code']) && $_GET['code'] === $key)
@@ -85,8 +86,11 @@ if (! function_exists('is_collapsed')) {
 }
 
 if (! function_exists('json_pretty')) {
-    function json_pretty($response)
+    /**
+     * @throws \JsonException
+     */
+    function json_pretty($response): false|string
     {
-        return json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        return json_encode($response, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +20,9 @@
                         <div class="card-body d-flex justify-content-center">
                             <a href="authorization.php" class="btn btn-primary">Connect to Kledo</a>
                         </div>
+                      <div class="card-footer">
+                        <?php echo 'Current PHP version: ' .PHP_VERSION; ?>
+                      </div>
                     </div>
                 </div>
             </div>

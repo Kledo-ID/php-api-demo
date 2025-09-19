@@ -18,7 +18,7 @@ $response = $client->delete($_ENV['API_HOST'].'/finance/accounts/massDelete', [
     ],
 ]);
 
-$body = json_decode((string) $response->getBody(), true);
+$body = json_decode((string) $response->getBody(), true, 512, JSON_THROW_ON_ERROR);
 
 ?>
 
