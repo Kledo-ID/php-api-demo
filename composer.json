@@ -6,8 +6,7 @@
         "php": "^8.0",
         "ext-json": "*",
         "guzzlehttp/guzzle": "^7.10",
-        "vlucas/phpdotenv": "^5.3",
-        "josantonius/session": "^2.0"
+        "vlucas/phpdotenv": "^5.3"
     },
     "autoload": {
         "files": [
