@@ -1,6 +1,6 @@
 # Kledo PHP OAuth 2 App
 
-Projek PHP ini mendemonstrasikan cara mengakses API Kledo menggunakan OAuth2. Gunakan `composer` atau `clone` repositori ini untuk memulai.
+Projek PHP ini mendemonstrasikan cara mengakses API Kledo menggunakan API Key. Gunakan `composer` atau `clone` repositori ini untuk memulai.
 
 ## Mulai
 
