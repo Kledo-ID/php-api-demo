@@ -32,55 +32,28 @@ $ cd php-oauth2-demo
 $ composer install
 ```
 
-## Membuat OAuth2 App Client
+## Membuat API Key
 
-Untuk mendapatkan `client id` dan `client secret`, ikuti langkah-langkah berikut untuk membuat OAuth Client.
+Ikuti langkah-langkah berikut untuk membuat API Key.
 
 * Buat akun di [kledo](https://kledo.com/daftar/) (Jika belum punya)
 * Login ke [Kledo](https://app.kledo.com/)
-* Buka menu `Pengaturan` > `Integrasi Aplikasi`
+* Buka menu `Pengaturan` > `Integrasi` > `API Key`
 * Kemudian klik tombol `Tambah`
-* Masukkan `Nama Aplikasi` dan `OAuth 2.0 redirect URI`
-* Klik tombol `Simpan`
-* Copy `client id` dan `client secret` kemudian simpan ke dalam text file.
+* Masukkan `Nama Token` dan `Tanggal Kedaluwarsa`
+* Klik tombol `Tambah Token`
+* Copy `Personal Access Token` kemudian simpan ke dalam text file.
 
 ## Konfigurasi .env
 
-Rename file `.env.sample` ke `.env` kemudian copy & paste `api host`, `client id`, `client secret` dan `redirect uri` ke variabel `.env`
+* Rename file `.env.sample` ke `.env`
+* Sesuaikan `API_HOST` dengan API Endpoint URL yang ada di halaman menu `Pengaturan` > `Integrasi` > `API Key`.
+* copy & paste `Personal Access Token` yang sudah disimpan ke variabel `ACCESS_TOKEN`.
 
 Contoh file `.env`
 
 ```text
-API_HOST=http://app.kledo.com/api/v1
+API_HOST=http://xxx.api.kledo.com/api/v1
 
-CLIENT_ID="YOUR-CLIENT-ID"
-CLIENT_SECRET="YOUR-CLIENT-SECRET"
-REDIRECT_URI="http://localhost/php-api-demo/callback.php"
-```
-Contoh Kode PHP dari `authorization.php`
-
-```phpt
-// Library ini akan membaca variabel dari file .env
-
-require 'load.php';
-
-use Josantonius\Session\Session;
-
-$state = random_string(40);
-
-Session::set('state', $state);
-
-$query = http_build_query([
-    'client_id' => $_ENV['CLIENT_ID'],
-    'redirect_uri' => $_ENV['REDIRECT_URI'],
-    'response_type' => 'code',
-    'scope' => '',
-    'state' => $state,
-]);
-
-$authorizationUrl = $_ENV['API_HOST'].'/oauth/authorize?'.$query;
-
-header('Location: '.$authorizationUrl);
-
-exit();
+ACCESS_TOKEN="kledo_pat_0000MC_AACiJecQWjt6W***koRe"
 ```
