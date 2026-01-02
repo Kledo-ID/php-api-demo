@@ -1,7 +1,5 @@
 <?php
 
-use Josantonius\Session\Facades\Session;
-
 if (! function_exists('random_string')) {
     /**
      * Generate a more truly "random" alpha-numeric string.
@@ -26,28 +24,6 @@ if (! function_exists('random_string')) {
     }
 }
 
-if (! function_exists('set_token')) {
-    /**
-     * Store token details to session.
-     *
-     * @param  string  $tokenType
-     * @param  string  $accessToken
-     * @param  string  $refreshToken
-     * @param  string  $expiresIn
-     * @return void
-     * @throws \Josantonius\Session\Exceptions\SessionNotStartedException
-     */
-    function set_token(string $tokenType, string $accessToken, string $refreshToken, string $expiresIn): void
-    {
-        Session::set('oauth2', [
-            'token_type' => $tokenType,
-            'access_token' => $accessToken,
-            'refresh_token' => $refreshToken,
-            'expires_in' => $expiresIn,
-        ]);
-    }
-}
-
 if (! function_exists('get_access_token')) {
     /**
      * Get the access token.
@@ -56,19 +32,7 @@ if (! function_exists('get_access_token')) {
      */
     function get_access_token(): string
     {
-        return (new Josantonius\Session\Session)->get('oauth2')['access_token'];
-    }
-}
-
-if (! function_exists('get_refresh_token')) {
-    /**
-     * Get the refresh token.
-     *
-     * @return string
-     */
-    function get_refresh_token(): string
-    {
-        return (new Josantonius\Session\Session)->get('oauth2')['refresh_token'];
+        return $_ENV['ACCESS_TOKEN'];
     }
 }
 

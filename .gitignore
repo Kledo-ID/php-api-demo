@@ -1,2 +1,4 @@
+/.claude
+/claude-docs
 /vendor
 .env
