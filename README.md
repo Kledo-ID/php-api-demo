@@ -329,7 +329,7 @@ API Key diperlukan agar aplikasi kamu bisa berkomunikasi dengan Kledo. Ikuti lan
 
 ### Langkah 1: Copy File Environment
 
-Di folder project, kamu akan menemukan file `.env.sample`. Rename file ini menjadi `.env`:
+Di folder project, kamu akan menemukan file `.env.example`. Rename file ini menjadi `.env`:
 
 #### Cara 1 - Via Terminal/Command (Recommended) 💻
 
@@ -338,8 +338,8 @@ Di folder project, kamu akan menemukan file `.env.sample`. Rename file ini menja
 # Pastikan kamu sudah di folder project
 cd C:\xampp\htdocs\php-api-demo
 
-# Copy file .env.sample ke .env
-copy .env.sample .env
+# Copy file .env.example ke .env
+copy .env.example .env
 ```
 
 **macOS / Linux / Git Bash:**
@@ -349,26 +349,26 @@ cd /Applications/XAMPP/htdocs/php-api-demo  # macOS
 # atau
 cd /var/www/html/php-api-demo              # Linux
 
-# Copy file .env.sample ke .env
-cp .env.sample .env
+# Copy file .env.example ke .env
+cp .env.example .env
 ```
 
 #### Cara 2 - Via File Explorer (Alternatif) 🖱️
 
 **Windows:**
 1. Buka folder `php-api-demo` di File Explorer
-2. Klik kanan file `.env.sample`
+2. Klik kanan file `.env.example`
 3. Pilih **Copy** → **Paste**
 4. Rename hasil copy menjadi `.env`
 
 **macOS:**
 1. Buka Finder → folder `php-api-demo`
-2. Klik kanan file `.env.sample` → **Duplicate**
+2. Klik kanan file `.env.example` → **Duplicate**
 3. Rename hasil duplicate menjadi `.env`
 
 **Linux:**
 1. Buka File Manager → folder `php-api-demo`
-2. Klik kanan file `.env.sample` → **Copy**
+2. Klik kanan file `.env.example` → **Copy**
 3. Paste dan rename menjadi `.env`
 
 ---
@@ -551,7 +551,7 @@ Jika semua berjalan lancar, kamu akan melihat data Finance Account dari akun Kle
 ### ❌ Error: "API_HOST not found"
 
 **Solusi:**
-1. Cek file `.env` sudah dibuat (bukan `.env.sample`)
+1. Cek file `.env` sudah dibuat (bukan `.env.example`)
 2. Pastikan `API_HOST` sesuai dengan API Endpoint di halaman Kledo
 3. Pastikan tidak ada typo atau spasi berlebih
 
@@ -569,6 +569,117 @@ Jika semua berjalan lancar, kamu akan melihat data Finance Account dari akun Kle
 1. Aktifkan **error reporting** di PHP
 2. Cek file `error.log` di folder XAMPP
 3. Pastikan semua extension PHP sudah aktif (curl, json, openssl)
+
+### ❌ Error: "cURL error 60: SSL certificate problem"
+
+**Error lengkap:**
+```
+cURL error 60: SSL certificate problem: unable to get local issuer certificate
+```
+
+Ini terjadi karena PHP tidak menemukan file CA Certificate untuk memverifikasi koneksi HTTPS.
+
+**Solusi (Windows/XAMPP):**
+
+#### Langkah 1: Download CA Certificate
+
+```bash
+# Buka browser dan download file ini:
+# https://curl.se/ca/cacert.pem
+# Atau gunakan PowerShell:
+
+cd C:\xampp\php
+Invoke-WebRequest -Uri https://curl.se/ca/cacert.pem -OutFile cacert.pem
+```
+
+Atau download manual:
+1. Buka [https://curl.se/ca/cacert.pem](https://curl.se/ca/cacert.pem)
+2. Save As → Simpan di `C:\xampp\php\cacert.pem`
+
+#### Langkah 2: Edit php.ini
+
+**Via Terminal:**
+```cmd
+# Buka php.ini dengan Notepad
+notepad C:\xampp\php\php.ini
+```
+
+**Via GUI:**
+1. Buka **XAMPP Control Panel**
+2. Klik tombol **Config** di samping Apache
+3. Pilih **PHP (php.ini)**
+
+#### Langkah 3: Update Konfigurasi
+
+Cari baris berikut (gunakan Ctrl+F):
+```ini
+;curl.cainfo =
+```
+
+Ubah menjadi (hapus `;` dan isi path):
+```ini
+curl.cainfo = "C:\xampp\php\cacert.pem"
+```
+
+Juga cari:
+```ini
+;openssl.cafile=
+```
+
+Ubah menjadi:
+```ini
+openssl.cafile="C:\xampp\php\cacert.pem"
+```
+
+#### Langkah 4: Restart Apache
+
+1. Buka **XAMPP Control Panel**
+2. Klik **Stop** pada Apache
+3. Tunggu beberapa detik
+4. Klik **Start** lagi
+
+#### Langkah 5: Test
+
+Refresh halaman aplikasi dan coba Submit Request lagi. Error seharusnya sudah hilang! ✅
+
+**Solusi (macOS/Linux):**
+
+Biasanya CA certificates sudah terinstall otomatis, tapi jika masih error:
+
+**macOS:**
+```bash
+# Install CA certificates via Homebrew
+brew install ca-certificates
+
+# Update php.ini
+sudo nano /Applications/XAMPP/etc/php.ini
+
+# Tambahkan:
+curl.cainfo = "/usr/local/etc/ca-certificates/cert.pem"
+openssl.cafile = "/usr/local/etc/ca-certificates/cert.pem"
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+# Install CA certificates
+sudo apt-get install ca-certificates -y
+
+# Update php.ini
+sudo nano /etc/php/8.1/apache2/php.ini
+
+# Tambahkan:
+curl.cainfo = "/etc/ssl/certs/ca-certificates.crt"
+openssl.cafile = "/etc/ssl/certs/ca-certificates.crt"
+
+# Restart Apache
+sudo systemctl restart apache2
+```
+
+> **💡 Tips:**
+> - Pastikan path file `cacert.pem` benar dan file ada
+> - Gunakan forward slash `/` atau double backslash `\\` di Windows path
+> - Restart Apache wajib setelah edit php.ini
+> - Jika masih error, cek `phpinfo()` untuk memastikan konfigurasi ter-load
 
 ---
 
