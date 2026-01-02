@@ -269,7 +269,7 @@ Buka **Command Prompt** atau **Git Bash**, lalu jalankan perintah berikut:
 cd C:\xampp\htdocs
 
 # Clone project dari GitHub
-git clone https://github.com/Kledo-ID/php-oauth2-demo.git
+git clone https://github.com/Kledo-ID/php-api-demo.git
 
 # Masuk ke folder project
 cd php-oauth2-demo
