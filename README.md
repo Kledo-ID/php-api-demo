@@ -331,54 +331,162 @@ API Key diperlukan agar aplikasi kamu bisa berkomunikasi dengan Kledo. Ikuti lan
 
 Di folder project, kamu akan menemukan file `.env.sample`. Rename file ini menjadi `.env`:
 
-**Cara 1 - Menggunakan Explorer:**
-1. Buka folder `php-oauth2-demo` di File Explorer
-2. Klik kanan file `.env.sample`
-3. Pilih **Rename**
-4. Ubah nama menjadi `.env`
-5. Klik **Enter**
+#### Cara 1 - Via Terminal/Command (Recommended) 💻
 
-**Cara 2 - Menggunakan Command:**
-```bash
-# Windows Command Prompt
+**Windows (Command Prompt / PowerShell):**
+```cmd
+# Pastikan kamu sudah di folder project
+cd C:\xampp\htdocs\php-api-demo
+
+# Copy file .env.sample ke .env
 copy .env.sample .env
+```
 
-# Git Bash / Linux / Mac
+**macOS / Linux / Git Bash:**
+```bash
+# Pastikan kamu sudah di folder project
+cd /Applications/XAMPP/htdocs/php-api-demo  # macOS
+# atau
+cd /var/www/html/php-api-demo              # Linux
+
+# Copy file .env.sample ke .env
 cp .env.sample .env
 ```
 
+#### Cara 2 - Via File Explorer (Alternatif) 🖱️
+
+**Windows:**
+1. Buka folder `php-api-demo` di File Explorer
+2. Klik kanan file `.env.sample`
+3. Pilih **Copy** → **Paste**
+4. Rename hasil copy menjadi `.env`
+
+**macOS:**
+1. Buka Finder → folder `php-api-demo`
+2. Klik kanan file `.env.sample` → **Duplicate**
+3. Rename hasil duplicate menjadi `.env`
+
+**Linux:**
+1. Buka File Manager → folder `php-api-demo`
+2. Klik kanan file `.env.sample` → **Copy**
+3. Paste dan rename menjadi `.env`
+
+---
+
 ### Langkah 2: Edit File .env
 
-1. Buka file `.env` dengan text editor (Notepad++, VS Code, atau Notepad biasa)
-2. Kamu akan melihat template seperti ini:
+#### Template File .env
+
+Sebelum edit, file `.env` akan terlihat seperti ini:
 
 ```text
 API_HOST=http://xxx.api.kledo.com/api/v1
 ACCESS_TOKEN="your_token_here"
 ```
 
-3. **Dapatkan API_HOST:**
+#### Cara 1 - Edit via Terminal (Recommended) 💻
+
+**Windows (Command Prompt / PowerShell):**
+```cmd
+# Gunakan Notepad bawaan Windows
+notepad .env
+```
+
+Atau menggunakan text editor lain via command:
+```cmd
+# Jika sudah install VS Code
+code .env
+
+# Jika sudah install Notepad++
+notepad++ .env
+```
+
+**macOS:**
+```bash
+# Gunakan nano (text editor terminal, user-friendly)
+nano .env
+
+# Atau gunakan vim (advanced)
+vim .env
+
+# Atau gunakan VS Code (jika sudah install)
+code .env
+
+# Atau gunakan TextEdit
+open -a TextEdit .env
+```
+
+**Linux:**
+```bash
+# Gunakan nano (paling mudah untuk pemula)
+nano .env
+
+# Atau gunakan vim
+vim .env
+
+# Atau gunakan gedit (GUI)
+gedit .env
+
+# Atau gunakan VS Code (jika sudah install)
+code .env
+```
+
+> **💡 Tips Nano Editor (macOS/Linux):**
+> - Edit file seperti biasa
+> - **Save:** Tekan `Ctrl + O`, lalu `Enter`
+> - **Exit:** Tekan `Ctrl + X`
+
+#### Cara 2 - Edit via GUI Editor (Alternatif) 🖱️
+
+**Windows:**
+- Klik kanan `.env` → **Open with** → Pilih:
+  - Notepad (bawaan)
+  - Notepad++ (jika sudah install)
+  - VS Code (jika sudah install)
+
+**macOS:**
+- Klik kanan `.env` → **Open With** → Pilih:
+  - TextEdit
+  - VS Code
+  - Sublime Text
+
+**Linux:**
+- Klik kanan `.env` → **Open With** → Pilih:
+  - gedit
+  - VS Code
+  - Sublime Text
+  - Vim/Nano (terminal)
+
+---
+
+### Langkah 3: Isi Konfigurasi
+
+1. **Dapatkan API_HOST:**
    - Buka halaman Kledo → **Pengaturan** → **Integrasi** → **API Key**
    - Copy **API Endpoint URL** yang ditampilkan (contoh: `http://abc123.api.kledo.com/api/v1`)
    - Paste ke `API_HOST`
 
-4. **Masukkan ACCESS_TOKEN:**
+2. **Masukkan ACCESS_TOKEN:**
    - Paste **Personal Access Token** yang sudah kamu simpan sebelumnya
    - Pastikan token diapit tanda petik dua (`"`)
 
-5. **Hasil akhir** akan terlihat seperti ini:
+3. **Hasil akhir** akan terlihat seperti ini:
 
 ```text
 API_HOST=http://abc123.api.kledo.com/api/v1
 ACCESS_TOKEN="kledo_pat_0000MC_AACiJecQWjt6WkoRe"
 ```
 
-6. **Save** file `.env`
+4. **Save** file `.env`:
+   - **Nano:** `Ctrl + O` → `Enter` → `Ctrl + X`
+   - **Vim:** Tekan `Esc` → ketik `:wq` → `Enter`
+   - **Notepad/GUI:** `Ctrl + S` atau **File** → **Save**
 
 > **⚠️ Perhatian:**
 > - Pastikan tidak ada spasi sebelum atau sesudah `=`
 > - API_HOST tidak perlu tanda petik
 > - ACCESS_TOKEN harus diapit tanda petik dua
+> - File `.env` JANGAN di-commit ke Git (sudah ada di `.gitignore`)
 
 ---
 
