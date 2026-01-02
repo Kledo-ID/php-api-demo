@@ -329,7 +329,7 @@ API Key diperlukan agar aplikasi kamu bisa berkomunikasi dengan Kledo. Ikuti lan
 
 ### Langkah 1: Copy File Environment
 
-Di folder project, kamu akan menemukan file `.env.sample`. Rename file ini menjadi `.env`:
+Di folder project, kamu akan menemukan file `.env.example`. Rename file ini menjadi `.env`:
 
 #### Cara 1 - Via Terminal/Command (Recommended) 💻
 
@@ -338,8 +338,8 @@ Di folder project, kamu akan menemukan file `.env.sample`. Rename file ini menja
 # Pastikan kamu sudah di folder project
 cd C:\xampp\htdocs\php-api-demo
 
-# Copy file .env.sample ke .env
-copy .env.sample .env
+# Copy file .env.example ke .env
+copy .env.example .env
 ```
 
 **macOS / Linux / Git Bash:**
@@ -349,26 +349,26 @@ cd /Applications/XAMPP/htdocs/php-api-demo  # macOS
 # atau
 cd /var/www/html/php-api-demo              # Linux
 
-# Copy file .env.sample ke .env
-cp .env.sample .env
+# Copy file .env.example ke .env
+cp .env.example .env
 ```
 
 #### Cara 2 - Via File Explorer (Alternatif) 🖱️
 
 **Windows:**
 1. Buka folder `php-api-demo` di File Explorer
-2. Klik kanan file `.env.sample`
+2. Klik kanan file `.env.example`
 3. Pilih **Copy** → **Paste**
 4. Rename hasil copy menjadi `.env`
 
 **macOS:**
 1. Buka Finder → folder `php-api-demo`
-2. Klik kanan file `.env.sample` → **Duplicate**
+2. Klik kanan file `.env.example` → **Duplicate**
 3. Rename hasil duplicate menjadi `.env`
 
 **Linux:**
 1. Buka File Manager → folder `php-api-demo`
-2. Klik kanan file `.env.sample` → **Copy**
+2. Klik kanan file `.env.example` → **Copy**
 3. Paste dan rename menjadi `.env`
 
 ---
@@ -551,7 +551,7 @@ Jika semua berjalan lancar, kamu akan melihat data Finance Account dari akun Kle
 ### ❌ Error: "API_HOST not found"
 
 **Solusi:**
-1. Cek file `.env` sudah dibuat (bukan `.env.sample`)
+1. Cek file `.env` sudah dibuat (bukan `.env.example`)
 2. Pastikan `API_HOST` sesuai dengan API Endpoint di halaman Kledo
 3. Pastikan tidak ada typo atau spasi berlebih
 
