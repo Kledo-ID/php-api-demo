@@ -503,13 +503,13 @@ ACCESS_TOKEN="kledo_pat_0000MC_AACiJecQWjt6WkoRe"
 Buka browser favorit kamu (Chrome, Firefox, Edge) dan ketik:
 
 ```
-http://localhost/php-oauth2-demo
+http://localhost/php-api-demo
 ```
 
 atau
 
 ```
-http://localhost/php-oauth2-demo/index.php
+http://localhost/php-api-demo/index.php
 ```
 
 ### Langkah 3: Testing API
@@ -561,7 +561,7 @@ Jika semua berjalan lancar, kamu akan melihat data Finance Account dari akun Kle
 1. Port 80 mungkin sudah dipakai aplikasi lain (Skype, IIS)
 2. Buka **XAMPP Config** → **Apache (httpd.conf)**
 3. Ubah port 80 menjadi 8080
-4. Akses dengan `http://localhost:8080/php-oauth2-demo`
+4. Akses dengan `http://localhost:8080/php-api-demo`
 
 ### ❌ Halaman blank/kosong
 
