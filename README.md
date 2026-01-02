@@ -272,7 +272,7 @@ cd C:\xampp\htdocs
 git clone https://github.com/Kledo-ID/php-api-demo.git
 
 # Masuk ke folder project
-cd php-oauth2-demo
+cd php-api-demo
 ```
 
 > **📝 Catatan:** Jika folder XAMPP kamu berbeda, sesuaikan path-nya (contoh: `D:\xampp\htdocs`)
