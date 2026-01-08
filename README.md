@@ -304,18 +304,38 @@ API Key diperlukan agar aplikasi kamu bisa berkomunikasi dengan Kledo. Ikuti lan
 
 1. Setelah login, klik menu **Pengaturan**
 2. Pilih **Integrasi** → **API Key**
+
+   <img src="docs/images/api-key-01-menu-integrasi.png" alt="Menu Integrasi - API Key" width="700">
+
 3. Klik tombol **Tambah** (warna biru)
+
+   <img src="docs/images/api-key-02-tombol-tambah.png" alt="Tombol Tambah API Key" width="700">
+
 4. Isi form yang muncul:
    - **Nama Token**: Berikan nama yang mudah diingat (contoh: `Demo App` atau `Testing API`)
+
+     <img src="docs/images/api-key-03-form-nama-token.png" alt="Form - Nama Token" width="600">
+
    - **Tanggal Kedaluwarsa**: Pilih tanggal kapan token ini akan expired (contoh: 1 bulan dari sekarang)
+
+     <img src="docs/images/api-key-04-form-tanggal-expired.png" alt="Form - Tanggal Kedaluwarsa" width="600">
+
 5. Klik tombol **Tambah Token**
+
+   <img src="docs/images/api-key-05-submit-token.png" alt="Submit - Tambah Token" width="600">
 
 ### Langkah 3: Simpan Token
 
 ⚠️ **PENTING!** Layar selanjutnya akan menampilkan **Personal Access Token** yang hanya muncul **SATU KALI**.
 
 1. **Copy** token yang ditampilkan (contoh: `kledo_pat_0000MC_AACiJecQWjt6W...`)
+
+   <img src="docs/images/save-token-01-copy-token.png" alt="Copy Personal Access Token" width="700">
+
 2. **Simpan** di Notepad atau text editor
+
+   <img src="docs/images/save-token-02-notepad.png" alt="Simpan Token di Notepad" width="700">
+
 3. **Jangan hilangkan** token ini karena tidak bisa dilihat lagi setelah kamu menutup halaman
 
 > **💡 Tips Keamanan:**
@@ -463,12 +483,22 @@ code .env
 
 1. **Dapatkan API_HOST:**
    - Buka halaman Kledo → **Pengaturan** → **Integrasi** → **API Key**
+
+     <img src="docs/images/config-01-menu-api-endpoint.png" alt="Menu API Endpoint" width="700">
+
    - Copy **API Endpoint URL** yang ditampilkan (contoh: `http://abc123.api.kledo.com/api/v1`)
+
+     <img src="docs/images/config-02-copy-api-host.png" alt="Copy API Host URL" width="700">
+
    - Paste ke `API_HOST`
+
+     <img src="docs/images/config-03-paste-api-host.png" alt="Paste API_HOST ke .env" width="600">
 
 2. **Masukkan ACCESS_TOKEN:**
    - Paste **Personal Access Token** yang sudah kamu simpan sebelumnya
    - Pastikan token diapit tanda petik dua (`"`)
+
+     <img src="docs/images/config-04-paste-access-token.png" alt="Paste ACCESS_TOKEN ke .env" width="600">
 
 3. **Hasil akhir** akan terlihat seperti ini:
 
@@ -523,9 +553,18 @@ Aplikasi akan menampilkan halaman dengan beberapa contoh operasi CRUD untuk **Fi
 - ✅ **DELETE - Finance Account** - Menghapus akun keuangan
 
 **Cara menggunakan:**
+
 1. Klik pada setiap section untuk melihat contoh request dan response
+
+   <img src="docs/images/testing-01-klik-section.png" alt="Klik Section untuk Expand" width="700">
+
 2. Klik tombol **Submit Request** untuk menjalankan API call secara langsung
+
+   <img src="docs/images/testing-02-submit-request.png" alt="Klik Tombol Submit Request" width="700">
+
 3. Response dari API akan ditampilkan di bawahnya
+
+   <img src="docs/images/testing-03-view-response.png" alt="View API Response" width="700">
 
 Jika semua berjalan lancar, kamu akan melihat data Finance Account dari akun Kledo kamu! 💰
 
