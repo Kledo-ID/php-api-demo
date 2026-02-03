@@ -12,7 +12,7 @@ Edit `API_HOST` dan `ACCESS_TOKEN` di setiap file sesuai dengan kredensial Anda.
 |-----------|-------------------|-------------------------------|----------------------------|
 | PHP       | php/simple-demo.php | `php simple-demo.php`        | PHP 7.4+                   |
 | Python    | python/simple-demo.py | `python simple-demo.py`   | Python 3.x (urllib bawaan) |
-| JavaScript| javascript/simple-demo.js | `node simple-demo.js` | Node.js 18+ (fetch bawaan) |
+| Node.js   | [nodejs/simple-demo.js](nodejs/simple-demo.js) | `node simple-demo.js` | Node.js 18+ (fetch bawaan) |
 | Go        | go/simple-demo.go | `go run simple-demo.go`       | Go 1.x                     |
 | Ruby      | ruby/simple-demo.rb | `ruby simple-demo.rb`       | Ruby 2.x+                  |
 | C#        | csharp/SimpleDemo.cs | `dotnet run` (dalam folder) | .NET 6+                    |

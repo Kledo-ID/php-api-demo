@@ -14,7 +14,7 @@ Ingin mencoba API Kledo **tanpa instalasi Composer**? Di folder [`simple-demo/`]
 |--------|--------|----------|
 | PHP | [simple-demo/php/](simple-demo/php/) | `php simple-demo.php` |
 | Python | [simple-demo/python/](simple-demo/python/) | `python simple-demo.py` |
-| JavaScript (Node.js) | [simple-demo/javascript/](simple-demo/javascript/) | `node simple-demo.js` |
+| Node.js | [simple-demo/nodejs/](simple-demo/nodejs/) | `node simple-demo.js` |
 | Go | [simple-demo/go/](simple-demo/go/) | `go run simple-demo.go` |
 | Ruby | [simple-demo/ruby/](simple-demo/ruby/) | `ruby simple-demo.rb` |
 | Rust | [simple-demo/rust/](simple-demo/rust/) | `cargo run` |
