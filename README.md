@@ -6,8 +6,34 @@ Projek ini mendemonstrasikan cara mudah mengakses API Kledo untuk mengelola data
 
 ---
 
+## ⚡ Simple Demo (Berbagai Bahasa)
+
+Ingin mencoba API Kledo **tanpa instalasi Composer**? Di folder [`simple-demo/`](simple-demo/) tersedia contoh script minimal (~10–20 baris) dalam berbagai bahasa pemrograman:
+
+| Bahasa | Lokasi | Perintah |
+|--------|--------|----------|
+| PHP | [simple-demo/php/](simple-demo/php/) | `php simple-demo.php` |
+| Python | [simple-demo/python/](simple-demo/python/) | `python simple-demo.py` |
+| JavaScript (Node.js) | [simple-demo/javascript/](simple-demo/javascript/) | `node simple-demo.js` |
+| Go | [simple-demo/go/](simple-demo/go/) | `go run simple-demo.go` |
+| Ruby | [simple-demo/ruby/](simple-demo/ruby/) | `ruby simple-demo.rb` |
+| Rust | [simple-demo/rust/](simple-demo/rust/) | `cargo run` |
+| Kotlin | [simple-demo/kotlin/](simple-demo/kotlin/) | `kotlinc ... && java -jar ...` |
+| Perl | [simple-demo/perl/](simple-demo/perl/) | `perl simple-demo.pl` |
+| Swift | [simple-demo/swift/](simple-demo/swift/) | `swift simple-demo.swift` |
+| Dart | [simple-demo/dart/](simple-demo/dart/) | `dart run simple-demo.dart` |
+| C# | [simple-demo/csharp/](simple-demo/csharp/) | `dotnet run` |
+| Java | [simple-demo/java/](simple-demo/java/) | `javac SimpleDemo.java && java SimpleDemo` |
+| Bash | [simple-demo/bash/](simple-demo/bash/) | `bash simple-demo.sh` |
+| PowerShell | [simple-demo/powershell/](simple-demo/powershell/) | `pwsh simple-demo.ps1` |
+
+**Cara pakai:** Edit `API_HOST` dan `ACCESS_TOKEN` di file yang dipilih, lalu jalankan perintah di atas. Detail lengkap lihat [simple-demo/README.md](simple-demo/README.md).
+
+---
+
 ## 📋 Daftar Isi
 
+- [Simple Demo (Berbagai Bahasa)](#-simple-demo-berbagai-bahasa)
 - [Persiapan Awal](#-persiapan-awal)
 - [Panduan Instalasi Tools](#-panduan-instalasi-tools)
   - [Windows](#windows)
